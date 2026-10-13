@@ -9,6 +9,7 @@ function clubName(name){
  const initials=short(name).split(/\s+/).slice(0,2).map(w=>w[0]).join('');
  return '<span class="club-name">'+(logo?'<img class="club-crest" src="'+esc(logo)+'" alt="" width="36" height="36">':'<span class="club-initials" aria-hidden="true">'+esc(initials)+'</span>')+'<span>'+esc(short(name))+'</span></span>';
 }
+const clubOptions=table=>table.slice().sort((a,b)=>short(a.team).localeCompare(short(b.team),'en',{sensitivity:'base'})).map(r=>'<option value="'+esc(r.team)+'">'+esc(short(r.team))+'</option>').join('');
 const score=s=>/^\d+/.exec(s)?.[0]||s||'—';
 function scoreWithTries(raw){
  const points=score(raw);
@@ -78,7 +79,7 @@ async function refresh(){
   const r=await fetch('/api/league',{signal:AbortSignal.timeout(12000)});if(!r.ok)throw Error();const next=await r.json();
   if(!Array.isArray(next.matches)||!Array.isArray(next.table)||!next.checkedAt)throw Error();
   if(!next.stale)save('mj-data',next);data=next;
-  $('#club').innerHTML='<option value="">All clubs</option>'+next.table.map(r=>'<option value="'+esc(r.team)+'">'+esc(short(r.team))+'</option>').join('');
+  $('#club').innerHTML='<option value="">All clubs</option>'+clubOptions(next.table);
   if(!next.table.some(r=>r.team===club))club='';$('#club').value=club;
   $('#status').hidden=!next.stale;$('#status').textContent=next.stale?'Unable to check live results. Showing saved data.':'';render();for(const id of openSheets)fetchSheet(id);
  }catch{
@@ -92,7 +93,7 @@ document.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{tab=b.dataset.
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)refresh();});
 setInterval(()=>{if(!document.hidden)refresh();},300000);
 if(data){
- $('#club').innerHTML='<option value="">All clubs</option>'+data.table.map(r=>'<option value="'+esc(r.team)+'">'+esc(short(r.team))+'</option>').join('');
+ $('#club').innerHTML='<option value="">All clubs</option>'+clubOptions(data.table);
  if(!data.table.some(r=>r.team===club))club='';$('#club').value=club;
  render();
 }
