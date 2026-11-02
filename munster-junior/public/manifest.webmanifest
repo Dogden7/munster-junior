@@ -2,7 +2,7 @@
   "id": "./",
   "name": "Munster Junior Rugby",
   "short_name": "Munster Junior",
-  "description": "Munster Junior Division 1 fixtures, results and league table.",
+  "description": "Junior League Division 1 and South Junior 2 fixtures, results and league tables.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

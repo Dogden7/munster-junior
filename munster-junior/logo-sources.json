@@ -54,5 +54,21 @@
   "Richmond RFC 1st XV": {
     "url": "https://sportlomo-userupload.s3.amazonaws.com/clubLogos/8470/Club Crest - Colm.PNG",
     "source": "https://reg.sportlomo.com/club/IRFU/munsterrugby/richmond"
+  },
+  "Highfield RFC 3rd XV": {
+    "url": "https://sportlomo-userupload.s3.amazonaws.com/clubLogos/8549/HighfieldCrestLR.jpg",
+    "source": "https://reg.sportlomo.com/club/IRFU/munsterrugby/highfield"
+  },
+  "University College Cork RFC 3rd XV": {
+    "url": "https://sportlomo-userupload.s3.amazonaws.com/clubLogos/8506/University College Cork R.F.C_women.jpg",
+    "source": "https://reg.sportlomo.com/club/IRFU/munsterrugby/ucc"
+  },
+  "Cork Constitution FC 3rd XV": {
+    "url": "https://sportlomo-userupload.s3.amazonaws.com/clubLogos/4124/Blue Logo.jpg",
+    "source": "https://reg.sportlomo.com/club/IRFU/munsterrugby/corkconstitution"
+  },
+  "Dolphin RFC 3rd XV": {
+    "url": "https://sportlomo-userupload.s3.amazonaws.com/clubLogos/4122/DolphinLogo.jpg",
+    "source": "https://reg.sportlomo.com/club/IRFU/munsterrugby/dolphin"
   }
 }

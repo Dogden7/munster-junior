@@ -1,4 +1,4 @@
-# Munster Junior Division 1
+# Munster Junior Rugby
 
 ## Install on your phone
 
@@ -25,8 +25,10 @@ Open http://localhost:3000. Run parser checks with `npm test`.
 
 For the in-chat file preview, open `public/index.html`. It embeds its styles, scripts and a saved data snapshot, so the club filter and all tabs work without the server. It explicitly labels the data as saved when the live API is unavailable. Live updates require the running Node server. Rebuild this preview after changes with `node build-preview.mjs`; edit `page-template.html` for page markup.
 
-Reads the 2026–2027 Junior League Division 1 competition from SportLoMo. Results, fixtures and league standings come from the source; cup matches are excluded. The server caches successful checks for one minute; the browser checks every five minutes while visible and on return to the tab. A manual Refresh checks immediately subject to the server cache.
+Use the league dropdown at the top to choose Junior League Division 1 or South - Junior 2 League. Both competitions use the same results, fixtures, standings, club filtering and team sheet views. Club preferences, saved data and team sheets are stored separately for each league.
 
-Favourite club and detected changes are stored in the browser. The server keeps the last successful data in snapshot.json and labels it stale if the source cannot be reached. This file is a fallback, not live data. A season rollover requires updating the competition URL and season label in data.mjs.
+Reads the 2026–2027 competitions from SportLoMo. Results, fixtures and league standings come from the source; cup matches are excluded. The server caches successful checks for one minute; the browser checks every five minutes while visible and on return to the tab. A manual Refresh checks immediately subject to the server cache.
+
+Favourite club and detected changes are stored in the browser. The server keeps the last successful data in snapshot.json (Division 1) or snapshot-south-junior-2.json (South Junior 2) and labels it stale if the source cannot be reached. This file is a fallback, not live data. A season rollover requires updating the competition URL in divisions.mjs and season label in data.mjs.
 
 This version does not send background push notifications or run unattended checks. Hosting and a notification service are needed for that functionality. Sites publishing was blocked because its required source and packaging helpers are absent in the workspace.
